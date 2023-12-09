@@ -8,7 +8,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 
 
 
-def get_creds() -> Credentials:
+def get_creds(local_file_path) -> Credentials:
     # If modifying these scopes, delete the file token.json.
     SCOPES = ["https://www.googleapis.com/auth/drive.metadata.readonly",
               "https://www.googleapis.com/auth/drive.file"]
@@ -20,10 +20,10 @@ def get_creds() -> Credentials:
     # created automatically when the authorization flow completes for the first
     # time.
     print("checking credentials")
-    exists = os.path.exists("token.json")
+    exists = os.path.exists(f"{local_file_path}token.json")
     if exists:
         print("credentials found")
-        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+        creds = Credentials.from_authorized_user_file(f"{local_file_path}token.json", SCOPES)
         return creds
   
   # If there are no (valid) credentials available, let the user log in.
