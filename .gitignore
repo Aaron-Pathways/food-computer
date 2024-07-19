@@ -1,1 +1,4 @@
-__pycache__//
+__pycache__/*
+token.json
+credentials.json
+factories/__pycache__/*

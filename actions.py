@@ -48,7 +48,7 @@ def upload_file(service, local_file_path, local_file_name, local_file_timestamp,
         "name": local_file_timestamp,
         "parents": [folder_id]
     }
-
+    
     # upload
     media = MediaFileUpload(f"{local_file_path}{local_file_name}", resumable=True)
     file = service.files().create(body=file_metadata, media_body=media, fields='id').execute()
