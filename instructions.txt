@@ -1,0 +1,8 @@
+script path: /home/admin/food-computer/capture.sh
+crontab config (sudo /home/admin/food-computer/capture.sh)
+
+install fswebcam
+create shell script (with logging to txt file). 
+  Save pictures to /media/admin/ESD-USB/snapshots
+  Save logging to /media/admin/ESD-USB/logs
+create crontab
