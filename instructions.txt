@@ -2,6 +2,7 @@ script path: /home/admin/food-computer/capture.sh
 crontab config "(sudo /home/admin/food-computer/capture.sh)"
 
 install fswebcam "sudo apt-get install fswebcam"
+add "dwc_otg.fiq_enable=1 dwc_otg.fiq_fsm_enable=1 dwc_otg.fiq_fsm_mask=0x3" to /boot/firmware/cmdline.txt
 create USB directories (if needed)
 create food computer directories (if needed)
 create shell script (with logging to txt file). 
