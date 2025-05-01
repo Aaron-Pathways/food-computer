@@ -1,8 +1,22 @@
 script path: /home/admin/food-computer/capture.sh
 crontab config "(sudo /home/admin/food-computer/capture.sh)"
 
-install fswebcam
+install fswebcam "sudo apt-get install fswebcam"
+create USB directories (if needed)
+create food computer directories (if needed)
 create shell script (with logging to txt file). 
   Save pictures to /media/admin/ESD-USB/snapshots
   Save logging to /media/admin/ESD-USB/logs
 create crontab for every 6 hours (* */6 * * *)
+
+
+#!/bin/bash
+timestamp=`date +%h%d%Y_%H%M%S`
+filename=$timestamp.jpg
+filepath=/media/admin/ESD-USB/snapshots/
+logpath=/media/admin/ESD-USB/logs/
+logname=log.txt
+
+fswebcam "${filepath}${filename}"
+echo "${timestamp} - script ran" >> $logpath$logname
+echo "exit code $?"
